@@ -17,6 +17,8 @@ protocol Storage {
 }
 
 struct UserDefaultStorage: Storage {
+    // No complex query, no need to use a database.
+    // User default is way more than enough to answer the problem
     
     func save(forKey key: StorageKeys, value: Codable) throws {
         try UserDefaults.standard.set(JSONEncoder().encode(value), forKey: key.rawValue)

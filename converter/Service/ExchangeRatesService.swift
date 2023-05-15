@@ -12,7 +12,7 @@ enum errr: Error {
     case test
 }
 
-class ExchangeRatesService: ObservableObject {
+class ExchangeRatesService: Service, ObservableObject {
     @Published var ratesExchangeData: Loadable<ExchangeRates> = .notRequested {
         didSet {
             switch ratesExchangeData {
@@ -23,9 +23,9 @@ class ExchangeRatesService: ObservableObject {
         }
     }
     private var storage: Storage
-    private var service = ServiceAPI<ExchangeRates>(route: .latest)
+    private var serviceAPI = ServiceAPI<ExchangeRates>(route: .latest)
     
-    required init(storage: Storage) {
+    required init(_ storage: Storage) {
         self.storage = storage
         guard let initalValues : ExchangeRates = try? storage.load(forKey: .exchangeRates) else {
             ratesExchangeData = .notRequested
@@ -35,7 +35,7 @@ class ExchangeRatesService: ObservableObject {
     }
     
     private func load() {
-        ratesExchangeData = .loading(ratesExchangeData.value, service.dataTask.sink(
+        ratesExchangeData = .loading(ratesExchangeData.value, serviceAPI.dataTask.sink(
             receiveCompletion: { completion in
                 switch completion {
                     case .finished:
@@ -45,8 +45,6 @@ class ExchangeRatesService: ObservableObject {
                 }
             },
             receiveValue: { value in
-                // we need to keep track of the last date we made the call
-                // not when the API did update last time
                 self.ratesExchangeData = .loaded(value)
             }
         ))
