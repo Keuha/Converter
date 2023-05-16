@@ -22,8 +22,8 @@ class ExchangeRatesService: Service, ObservableObject {
             }
         }
     }
-    private var storage: Storage
-    private var networking: Networking
+    private let storage: Storage
+    private let networking: Networking
     
     required init(_ storage: Storage, network: Networking) {
         self.storage = storage

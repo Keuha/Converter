@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CurrencyRow: View {
-    var key: String
-    var amount: String
+    let key: String
+    let amount: String
     
     var body: some View {
         LabeledContent(key) {

@@ -8,16 +8,10 @@
 import SwiftUI
 
 struct LastViewedText: View {
-    var date: Date
-    
-    private let viewModel = AmountSelectionViewModel()
-    
+    let date: Date
+
     var body: some View {
         Text("Last updated : \(date.formattedToString)").padding()
     }
-    
-}
-
-class AmountSelectionViewModel {
     
 }

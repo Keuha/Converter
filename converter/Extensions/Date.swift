@@ -8,7 +8,7 @@
 import Foundation
 
 fileprivate var dateFormatter = {
-    var formatter = DateFormatter()
+    let formatter = DateFormatter()
     formatter.dateFormat = "dd/MM/yyyy HH:mm"
     return formatter
 }()

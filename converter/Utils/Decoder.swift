@@ -12,9 +12,3 @@ let ConfiguredJSONDecoder = {
     decoder.dateDecodingStrategy = .secondsSince1970
     return decoder
 }()
-
-let ConfiguredJSONEncoder = {
-    let encoder = JSONEncoder()
-    encoder.dateEncodingStrategy = .secondsSince1970
-    return encoder
-}()

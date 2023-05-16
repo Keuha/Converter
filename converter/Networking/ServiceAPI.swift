@@ -15,7 +15,7 @@ protocol Networking {
 }
 
 struct ServiceAPI<T: Codable>: Networking {
-    private var route: ExchangeRatesRoute!
+    private let route: ExchangeRatesRoute
     private let urlSession = URLSession.shared
     
     init(_ route: ExchangeRatesRoute) {

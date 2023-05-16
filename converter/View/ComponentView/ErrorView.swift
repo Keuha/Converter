@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ErrorView: View {
-    var action : ()->()
-    var error: Error
+    let action : ()->()
+    let error: Error
     
     var body : some View {
         VStack {

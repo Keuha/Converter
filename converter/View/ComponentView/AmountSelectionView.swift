@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AmountSelectionView: View {
-    var keys: [String]
+    let keys: [String]
     @Binding var amountToConvert: Double
     @Binding var currencyName: String
     
