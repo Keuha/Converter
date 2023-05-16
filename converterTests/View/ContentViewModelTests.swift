@@ -12,7 +12,7 @@ import SwiftUI
 final class ContentViewModelTests: XCTestCase {
     
     func testGetKeysOrdered() throws {
-        let mockData: ExchangeRates = try! ConfiguredJSONDecoder.decode(ExchangeRates.self, from: ExchangeMock.smallList!)
+        let mockData = DataConverter.translateExchangeModelType(data: ExchangeMock.data!)
         let viewModel = ContentViewModel()
         
         let sortedKey = viewModel.getKeys(mockData)

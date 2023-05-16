@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 @testable import converter
 
 enum StorageStubError: Error {
@@ -13,33 +14,18 @@ enum StorageStubError: Error {
 }
 
 class StorageStub: Storage {
-
-    var keyUsedToSave: converter.StorageKeys?
-    var keyUsedToLoad: converter.StorageKeys?
+    private (set) var valueToBeSaved: DBObject? = nil
+    var valueToBeLoaded: DBObject? = nil
+    var saveHasBeenCalled = false
+    var loadHasBeenCalled = false
     
-    private (set) var valueToBeSaved: Decodable? = nil
-    var valueToBeLoaded: Data? = nil
-    
-    var loadShouldThrow = false
-    var saveShouldThrow = false
-    
-    func load<WantedValue: Decodable>(forKey key: converter.StorageKeys) throws -> WantedValue? {
-        keyUsedToLoad = key
-        if loadShouldThrow {
-            throw StorageStubError.something
-        }
-        guard let returnedValue = valueToBeLoaded else {
-            return nil
-        }
-        let value = try ConfiguredJSONDecoder.decode(WantedValue.self, from: returnedValue)
-        return value 
+    func save<Value: Model>(value: Value) {
+        saveHasBeenCalled = true
+        valueToBeSaved = value.toDB()
     }
     
-    func save(forKey key: converter.StorageKeys, value: Codable) throws {
-        keyUsedToSave = key
-        if saveShouldThrow {
-            throw  StorageStubError.something
-        }
-        valueToBeSaved = value
+    func load<Value: DBObject>() -> Value? {
+        loadHasBeenCalled = true
+        return valueToBeLoaded as? Value
     }
 }

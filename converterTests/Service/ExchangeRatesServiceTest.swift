@@ -12,22 +12,19 @@ import SwiftUI
 
 final class ExchangeRatesService: XCTestCase {
     
-  
-    
     func testShouldLoadFromStorage() throws {
         let stub = StorageStub()
         let _ = converter.ExchangeRatesService(stub, network: NetWorkingStub(.latest))
         
-        XCTAssertEqual(stub.keyUsedToLoad, .exchangeRates) // look for previously stored values
-        XCTAssertNil(stub.keyUsedToSave) // nothing needs to be saved at init
+        XCTAssertTrue(stub.loadHasBeenCalled)
     }
     
     func testShouldLoadMockFromStorage() throws {
         let stub = StorageStub()
-        stub.valueToBeLoaded = ExchangeMock.data // value to be return on load
+        stub.valueToBeLoaded = DataConverter.translateExchangeDBType(data: ExchangeMock.data!)
         
         let object = converter.ExchangeRatesService(stub, network: NetWorkingStub())
-        let mockData: ExchangeRates = try! ConfiguredJSONDecoder.decode(ExchangeRates.self, from: ExchangeMock.data!)
+        let mockData = DataConverter.translateExchangeModelType(data: ExchangeMock.data!)
         
         switch object.ratesExchangeData {
             case .loaded(let rates):
@@ -57,7 +54,7 @@ final class ExchangeRatesService: XCTestCase {
         networkStub.valueToReturn = ExchangeMock.smallList!
         let object = converter.ExchangeRatesService(storageStub, network:networkStub)
         // create comparaison data before sink to avoid unneeded waiting time
-        let mockData: ExchangeRates = try! ConfiguredJSONDecoder.decode(ExchangeRates.self, from: ExchangeMock.smallList!)
+        let mockData = DataConverter.translateExchangeModelType(data: ExchangeMock.smallList!)
         let cancellable = object.$ratesExchangeData.sink { loadable in
             switch loadable {
                 case .loaded(let values):
@@ -158,11 +155,12 @@ final class ExchangeRatesService: XCTestCase {
         let networkStub = NetWorkingStub()
         
         // store a Mock from minutesOld min ago in storage
-        var mockData: ExchangeRates = try! ConfiguredJSONDecoder.decode(ExchangeRates.self, from: ExchangeMock.smallList!)
+        var mockData = DataConverter.translateExchangeModelType(data: ExchangeMock.smallList!)
         let nowMinus29Min = Calendar.current.date(byAdding: .minute, value: -minutesOld, to: Date())!
         mockData.timestamp = nowMinus29Min
-        let encoded = try! ConfiguredJSONEncoder.encode(mockData)
-        storageStub.valueToBeLoaded = encoded
+        storageStub.valueToBeLoaded = ExchangeRatesDB(timestamp: mockData.timestamp,
+                                                      base: mockData.base,
+                                                      rates: mockData.rates)
         let object = converter.ExchangeRatesService(storageStub, network:networkStub)
         return (object, mockData)
     }
