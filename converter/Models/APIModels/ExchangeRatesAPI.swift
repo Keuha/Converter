@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExchangeRates : Codable, Equatable {
+struct ExchangeRatesAPI : Codable {
     var timestamp: Date
     var base: String
     var rates: [String: Double]
@@ -18,9 +18,5 @@ struct ExchangeRates : Codable, Equatable {
         timestamp = Date(timeIntervalSince1970: timeInterval)
         base = try container.decode(String.self, forKey: .base)
         rates = try container.decode([String: Double].self, forKey: .rates)
-    }
-    
-    static func == (lhs: ExchangeRates, rhs: ExchangeRates) -> Bool {
-        lhs.rates == rhs.rates && lhs.timestamp == rhs.timestamp
     }
 }

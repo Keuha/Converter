@@ -17,7 +17,7 @@ class ExchangeRatesService: Service, ObservableObject {
         didSet {
             switch ratesExchangeData {
                 case .loaded(let rates):
-                    try? self.storage.save(forKey: .exchangeRates, value: rates)
+                    self.storage.save(value: rates)
                 default: return
             }
         }
@@ -28,11 +28,11 @@ class ExchangeRatesService: Service, ObservableObject {
     required init(_ storage: Storage, network: Networking) {
         self.storage = storage
         self.networking = network
-        guard let initalValues : ExchangeRates = try? storage.load(forKey: .exchangeRates) else {
+        guard let initalValues: ExchangeRatesDB = storage.load() else {
             ratesExchangeData = .notRequested
             return
         }
-        ratesExchangeData = .loaded(initalValues)
+        ratesExchangeData = .loaded(ExchangeRates(initalValues))
     }
     
     private func load() {
@@ -46,7 +46,7 @@ class ExchangeRatesService: Service, ObservableObject {
                 }
             },
             receiveValue: { value in
-                self.ratesExchangeData = .loaded(value)
+                self.ratesExchangeData = .loaded(ExchangeRates(value))
             }
         ))
     }

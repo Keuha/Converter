@@ -10,8 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @State private var amountToConvert : Double = 1.0
     @State private var currencyName = "USD"
-    @ObservedObject var exchangeRates = ExchangeRatesService(UserDefaultStorage(),
-                                                             network: ServiceAPI<ExchangeRates>(.latest))
+    @ObservedObject var exchangeRates = ExchangeRatesService(DefaultStorage(),
+                                                             network: ServiceAPI<ExchangeRatesAPI>(.latest))
     
     private var viewModel = ContentViewModel()
     

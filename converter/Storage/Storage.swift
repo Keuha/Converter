@@ -6,28 +6,22 @@
 //
 
 import Foundation
-
-enum StorageKeys: String {
-    case exchangeRates = "ExchangeRates"
-}
+import RealmSwift 
+fileprivate let realm = try! Realm()
 
 protocol Storage {
-    func load<Value: Codable>(forKey key: StorageKeys) throws -> Value?
-    func save(forKey key: StorageKeys, value: Codable) throws
+    func load<Value: Object> () -> Value?
+    func save<Value: Model>(value: Value)
 }
 
-struct UserDefaultStorage: Storage {
-    // No complex query, no need to use a database.
-    // User default is way more than enough to answer the problem
-    func save(forKey key: StorageKeys, value: Codable) throws {
-        try UserDefaults.standard.set(ConfiguredJSONEncoder.encode(value), forKey: key.rawValue)
+struct DefaultStorage: Storage {
+    func save<Value: Model>(value: Value)  {
+        realm.writeAsync {
+            realm.add(value.toDB())
+        }
     }
     
-    func load<Value: Codable>(forKey key: StorageKeys) throws -> Value? {
-        guard let raw = UserDefaults.standard.object(forKey: key.rawValue) as? Data else {
-            return nil
-        }
-        return try ConfiguredJSONDecoder.decode(Value.self, from: raw)
-        
+    func load<Value: Object>() -> Value? {
+        return realm.objects(Value.self).first
     }
 }

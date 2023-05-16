@@ -20,11 +20,16 @@
 		59409EA62A0E701900B7AED4 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59409EA52A0E701900B7AED4 /* Storage.swift */; };
 		59409EA82A0E748A00B7AED4 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59409EA72A0E748A00B7AED4 /* Constant.swift */; };
 		59409EAB2A0E777300B7AED4 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59409EAA2A0E777300B7AED4 /* Loadable.swift */; };
-		59409EAD2A0E779A00B7AED4 /* ExchangeRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59409EAC2A0E779A00B7AED4 /* ExchangeRates.swift */; };
+		59409EAD2A0E779A00B7AED4 /* ExchangeRatesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59409EAC2A0E779A00B7AED4 /* ExchangeRatesAPI.swift */; };
 		59409EB02A0E782600B7AED4 /* ServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59409EAF2A0E782600B7AED4 /* ServiceAPI.swift */; };
 		59409EB52A0E795300B7AED4 /* StorageStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59409EB42A0E795300B7AED4 /* StorageStub.swift */; };
 		59409EB72A0E7B1600B7AED4 /* ExchangeRatesServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59409EB62A0E7B1600B7AED4 /* ExchangeRatesServiceTest.swift */; };
 		59409EBA2A0E7C9E00B7AED4 /* ExchangeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59409EB92A0E7C9E00B7AED4 /* ExchangeMock.swift */; };
+		5950D2CD2A14128D004AB047 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 5950D2CC2A14128D004AB047 /* Realm */; };
+		5950D2CF2A14128D004AB047 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5950D2CE2A14128D004AB047 /* RealmSwift */; };
+		5950D2D12A1413FC004AB047 /* DataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5950D2D02A1413FC004AB047 /* DataConverter.swift */; };
+		5950D2D42A141A15004AB047 /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5950D2D32A141A15004AB047 /* ExchangeRate.swift */; };
+		5950D2D62A141BE7004AB047 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5950D2D52A141BE7004AB047 /* Models.swift */; };
 		5956B9992A129453005972E6 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5956B9982A129453005972E6 /* Service.swift */; };
 		5956B9A32A129EE5005972E6 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5956B9A22A129EE5005972E6 /* Currency.swift */; };
 		59A3A41F2A12B57400E31A2D /* NetworkingStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A3A41E2A12B57400E31A2D /* NetworkingStub.swift */; };
@@ -34,6 +39,9 @@
 		59A734C72A12A7E20045CA0F /* LastViewed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595984B32A12A46800F74C55 /* LastViewed.swift */; };
 		59A734C82A12A7E20045CA0F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595984B52A12A46900F74C55 /* LoadingView.swift */; };
 		59E188472A13EB4600F4B557 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E188462A13EB4600F4B557 /* Decoder.swift */; };
+		59E1884F2A1401AD00F4B557 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 59E1884E2A1401AD00F4B557 /* Realm */; };
+		59E188512A1401AD00F4B557 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 59E188502A1401AD00F4B557 /* RealmSwift */; };
+		59E188532A1401EE00F4B557 /* ExchangeRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E188522A1401EE00F4B557 /* ExchangeRates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,11 +83,14 @@
 		59409EA52A0E701900B7AED4 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		59409EA72A0E748A00B7AED4 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		59409EAA2A0E777300B7AED4 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
-		59409EAC2A0E779A00B7AED4 /* ExchangeRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRates.swift; sourceTree = "<group>"; };
+		59409EAC2A0E779A00B7AED4 /* ExchangeRatesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesAPI.swift; sourceTree = "<group>"; };
 		59409EAF2A0E782600B7AED4 /* ServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAPI.swift; sourceTree = "<group>"; };
 		59409EB42A0E795300B7AED4 /* StorageStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageStub.swift; sourceTree = "<group>"; };
 		59409EB62A0E7B1600B7AED4 /* ExchangeRatesServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesServiceTest.swift; sourceTree = "<group>"; };
 		59409EB92A0E7C9E00B7AED4 /* ExchangeMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeMock.swift; sourceTree = "<group>"; };
+		5950D2D02A1413FC004AB047 /* DataConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConverter.swift; sourceTree = "<group>"; };
+		5950D2D32A141A15004AB047 /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
+		5950D2D52A141BE7004AB047 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		5956B9982A129453005972E6 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		5956B9A22A129EE5005972E6 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		595984B12A12A46700F74C55 /* CurrencyRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyRow.swift; sourceTree = "<group>"; };
@@ -89,6 +100,7 @@
 		595984B52A12A46900F74C55 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		59A3A41E2A12B57400E31A2D /* NetworkingStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingStub.swift; sourceTree = "<group>"; };
 		59E188462A13EB4600F4B557 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
+		59E188522A1401EE00F4B557 /* ExchangeRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +108,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59E188512A1401AD00F4B557 /* RealmSwift in Frameworks */,
+				59E1884F2A1401AD00F4B557 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +117,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5950D2CF2A14128D004AB047 /* RealmSwift in Frameworks */,
+				5950D2CD2A14128D004AB047 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +131,7 @@
 				59409E702A0E566B00B7AED4 /* converter */,
 				59409E812A0E566F00B7AED4 /* converterTests */,
 				59409E6F2A0E566B00B7AED4 /* Products */,
+				5950D2CB2A14128D004AB047 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,6 +178,7 @@
 				59409EB82A0E7C7D00B7AED4 /* Mock */,
 				59409EB32A0E794400B7AED4 /* Stub */,
 				59409E822A0E566F00B7AED4 /* converterTests.swift */,
+				5950D2D02A1413FC004AB047 /* DataConverter.swift */,
 			);
 			path = converterTests;
 			sourceTree = "<group>";
@@ -185,9 +203,12 @@
 		59409EA92A0E776400B7AED4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5950D2D22A1419A2004AB047 /* DBModels */,
 				5956B9972A129303005972E6 /* APIModels */,
 				59409E9D2A0E57A600B7AED4 /* ExchangeRatesRoute.swift */,
 				59409EAA2A0E777300B7AED4 /* Loadable.swift */,
+				5950D2D32A141A15004AB047 /* ExchangeRate.swift */,
+				5950D2D52A141BE7004AB047 /* Models.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -218,6 +239,21 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
+		5950D2CB2A14128D004AB047 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5950D2D22A1419A2004AB047 /* DBModels */ = {
+			isa = PBXGroup;
+			children = (
+				59E188522A1401EE00F4B557 /* ExchangeRates.swift */,
+			);
+			path = DBModels;
+			sourceTree = "<group>";
+		};
 		5956B9962A1292F6005972E6 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,7 +265,7 @@
 		5956B9972A129303005972E6 /* APIModels */ = {
 			isa = PBXGroup;
 			children = (
-				59409EAC2A0E779A00B7AED4 /* ExchangeRates.swift */,
+				59409EAC2A0E779A00B7AED4 /* ExchangeRatesAPI.swift */,
 			);
 			path = APIModels;
 			sourceTree = "<group>";
@@ -297,6 +333,10 @@
 			dependencies = (
 			);
 			name = converter;
+			packageProductDependencies = (
+				59E1884E2A1401AD00F4B557 /* Realm */,
+				59E188502A1401AD00F4B557 /* RealmSwift */,
+			);
 			productName = converter;
 			productReference = 59409E6E2A0E566B00B7AED4 /* converter.app */;
 			productType = "com.apple.product-type.application";
@@ -315,6 +355,10 @@
 				59409E802A0E566F00B7AED4 /* PBXTargetDependency */,
 			);
 			name = converterTests;
+			packageProductDependencies = (
+				5950D2CC2A14128D004AB047 /* Realm */,
+				5950D2CE2A14128D004AB047 /* RealmSwift */,
+			);
 			productName = converterTests;
 			productReference = 59409E7E2A0E566F00B7AED4 /* converterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -347,6 +391,9 @@
 				Base,
 			);
 			mainGroup = 59409E652A0E566B00B7AED4;
+			packageReferences = (
+				59E1884D2A1401AD00F4B557 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 59409E6F2A0E566B00B7AED4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -384,6 +431,7 @@
 				59A734C42A12A7E20045CA0F /* AmountSelectionView.swift in Sources */,
 				59A734C52A12A7E20045CA0F /* CurrencyRow.swift in Sources */,
 				59A734C62A12A7E20045CA0F /* ErrorView.swift in Sources */,
+				59E188532A1401EE00F4B557 /* ExchangeRates.swift in Sources */,
 				59E188472A13EB4600F4B557 /* Decoder.swift in Sources */,
 				59A734C72A12A7E20045CA0F /* LastViewed.swift in Sources */,
 				59A734C82A12A7E20045CA0F /* LoadingView.swift in Sources */,
@@ -391,6 +439,7 @@
 				5956B9992A129453005972E6 /* Service.swift in Sources */,
 				59409EA82A0E748A00B7AED4 /* Constant.swift in Sources */,
 				59409E742A0E566B00B7AED4 /* ContentView.swift in Sources */,
+				5950D2D62A141BE7004AB047 /* Models.swift in Sources */,
 				59409EA32A0E6E4000B7AED4 /* Date.swift in Sources */,
 				59409E722A0E566B00B7AED4 /* converterApp.swift in Sources */,
 				59409E9E2A0E57A600B7AED4 /* ExchangeRatesRoute.swift in Sources */,
@@ -398,7 +447,8 @@
 				592A4BBE2A0ED6E600A93EFC /* View.swift in Sources */,
 				59409E9C2A0E56B200B7AED4 /* ExchangeRatesService.swift in Sources */,
 				5956B9A32A129EE5005972E6 /* Currency.swift in Sources */,
-				59409EAD2A0E779A00B7AED4 /* ExchangeRates.swift in Sources */,
+				59409EAD2A0E779A00B7AED4 /* ExchangeRatesAPI.swift in Sources */,
+				5950D2D42A141A15004AB047 /* ExchangeRate.swift in Sources */,
 				59409EA62A0E701900B7AED4 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59409EBA2A0E7C9E00B7AED4 /* ExchangeMock.swift in Sources */,
+				5950D2D12A1413FC004AB047 /* DataConverter.swift in Sources */,
 				59409EB72A0E7B1600B7AED4 /* ExchangeRatesServiceTest.swift in Sources */,
 				59409E832A0E566F00B7AED4 /* converterTests.swift in Sources */,
 				59A3A41F2A12B57400E31A2D /* NetworkingStub.swift in Sources */,
@@ -672,6 +723,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		59E1884D2A1401AD00F4B557 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.39.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5950D2CC2A14128D004AB047 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 59E1884D2A1401AD00F4B557 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		5950D2CE2A14128D004AB047 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 59E1884D2A1401AD00F4B557 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		59E1884E2A1401AD00F4B557 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 59E1884D2A1401AD00F4B557 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		59E188502A1401AD00F4B557 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 59E1884D2A1401AD00F4B557 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 59409E662A0E566B00B7AED4 /* Project object */;
 }
