@@ -31,7 +31,8 @@ class StorageStub: Storage {
         guard let returnedValue = valueToBeLoaded else {
             return nil
         }
-        return try JSONDecoder().decode(WantedValue.self, from: returnedValue)
+        let value = try ConfiguredJSONDecoder.decode(WantedValue.self, from: returnedValue)
+        return value 
     }
     
     func save(forKey key: converter.StorageKeys, value: Codable) throws {
@@ -41,6 +42,4 @@ class StorageStub: Storage {
         }
         valueToBeSaved = value
     }
-    
-    
 }

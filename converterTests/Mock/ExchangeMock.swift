@@ -1,5 +1,5 @@
 //
-//  LatestMock.swift
+//  ExchangeMock.swift
 //  converterTests
 //
 //  Created by Frqnck  on 12/05/2023.
