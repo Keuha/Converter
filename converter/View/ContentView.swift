@@ -10,7 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @State private var amountToConvert : Double = 1.0
     @State private var currencyName = "USD"
-    @ObservedObject var exchangeRates = ExchangeRatesService(UserDefaultStorage())
+    @ObservedObject var exchangeRates = ExchangeRatesService(UserDefaultStorage(),
+                                                             network: ServiceAPI<ExchangeRates>(.latest))
     
     private var viewModel = ContentViewModel()
     
@@ -62,7 +63,7 @@ struct ContentView: View {
                 CurrencyRow(key: key,
                             amount: viewModel.convert(rates.rates[key] ?? 0,
                                                     amount: amountToConvert,
-                                                    toDollars: rates.rates[currencyName] ?? 0))
+                                                    toReference: rates.rates[currencyName] ?? 0))
             }.refreshable {
                 exchangeRates.loadIfNeeded()
             }
@@ -75,12 +76,12 @@ struct ContentViewModel {
         return rates.rates.map { $0.key }.sorted(by: <)
     }
     
-    func convert(_ to: Double, amount: Double, toDollars: Double) -> String {
-        guard toDollars > 0.0 else {
+    func convert(_ to: Double, amount: Double, toReference: Double) -> String {
+        guard toReference > 0.0 else {
             return "-"
         }
-        let fromNewToDollars = amount / toDollars
-        let fromDollarsToNew = fromNewToDollars * to
-        return String(format: "%.2f", fromDollarsToNew)
+        let fromOldToReference = amount / toReference
+        let fromReferenceToNew = fromOldToReference * to
+        return String(format: "%.2f", fromReferenceToNew)
     }
 }

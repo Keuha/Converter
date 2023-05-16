@@ -8,6 +8,6 @@
 import Foundation
 
 protocol Service {
-    init(_ storage: Storage)
+    init(_ storage: Storage, network: Networking)
     func loadIfNeeded()
 }

@@ -9,17 +9,28 @@ import Foundation
 import Combine
 import SwiftUI
 
-struct ServiceAPI<T: Codable> {
-    let route: ExchangeRatesRoute
-    @Injected(\.urlSession) var urlSession
-    var dataTask: AnyPublisher<T, Error> {
-        self.urlSession
+protocol Networking {
+    init(_ route: ExchangeRatesRoute)
+    func task<T: Codable>() ->  AnyPublisher<T, Error>
+}
+
+struct ServiceAPI<T: Codable>: Networking {
+    private var route: ExchangeRatesRoute!
+    private let urlSession = URLSession.shared
+    
+    init(_ route: ExchangeRatesRoute) {
+        self.route = route
+    }
+
+    func task<T: Codable>() -> AnyPublisher<T, Error>  {
+        return self.urlSession
             .dataTaskPublisher(for: route.url)
             .map {
                 $0.data
             }
-            .decode(type: T.self, decoder: JSONDecoder())
+            .decode(type: T.self, decoder: ConfiguredJSONDecoder)
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }
+  
 }
