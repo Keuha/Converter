@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ConverterUI
 
 struct ContentView: View {
     @State private var amountToConvert : Double = 1.0

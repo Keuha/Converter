@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 @testable import converter
+import ConverterUtility
 
 class NetWorkingStub : Networking {
     private var route: converter.ExchangeRatesRoute

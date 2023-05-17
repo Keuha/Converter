@@ -7,6 +7,7 @@
 
 import Foundation
 import RealmSwift
+import ConverterUtility
 @testable import converter
 
 enum DataConverter {
