@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "65DB1000-0C67-4930-AFC0-3578F8DFF967",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Converter.xcodeproj",
+        "identifier" : "59409E7D2A0E566F00B7AED4",
+        "name" : "ConverterTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/ConverterUtility\/ConverterUtility.xcodeproj",
+        "identifier" : "592DD00C2A150FEE00683328",
+        "name" : "ConverterUtilityTests"
+      }
+    }
+  ],
+  "version" : 1
+}

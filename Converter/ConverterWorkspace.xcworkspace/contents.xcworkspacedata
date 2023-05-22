@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Converter.xctestplan">
+   </FileRef>
+   <FileRef
+      location = "group:README.md">
+   </FileRef>
+   <FileRef
+      location = "group:Converter/Converter.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ConverterUtility/ConverterUtility.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ConverterUI/ConverterUI.xcodeproj">
+   </FileRef>
+</Workspace>
