@@ -13,7 +13,7 @@ enum errr: Error {
 }
 
 class ExchangeRatesService: Service, ObservableObject {
-    @Published var ratesExchangeData: Loadable<ExchangeRates> = .notRequested {
+    @Published private (set) var ratesExchangeData: Loadable<ExchangeRates> = .notRequested {
         didSet {
             switch ratesExchangeData {
                 case .loaded(let rates):
@@ -29,30 +29,29 @@ class ExchangeRatesService: Service, ObservableObject {
         self.storage = storage
         self.networking = network
         guard let initalValues: ExchangeRatesDB = storage.load() else {
-            ratesExchangeData = .notRequested
             return
         }
-        ratesExchangeData = .loaded(ExchangeRates(initalValues))
+        self.ratesExchangeData = .loaded(ExchangeRates(initalValues))
     }
     
     private func load() async {
         return await withCheckedContinuation { continuation in
             DispatchQueue.main.async {
-                self.ratesExchangeData = .loading(self.ratesExchangeData.value, self.networking.task().sink(
+                self.ratesExchangeData.setIsLoading(self.networking.task().sink(
                     receiveCompletion: { completion in
                         switch completion {
                         case .finished:
                             break
                         case let .failure(error):
                             DispatchQueue.main.async {
-                                self.ratesExchangeData = .error(error)
+                                self.ratesExchangeData.setError(error)
                                 continuation.resume()
                             }
                         }
                     },
                     receiveValue: { (value: ExchangeRatesAPI) in
                         DispatchQueue.main.async {
-                            self.ratesExchangeData = .loaded(ExchangeRates(value))
+                            self.ratesExchangeData.setValue(ExchangeRates(value))
                             continuation.resume()
                         }
                     }
@@ -63,8 +62,8 @@ class ExchangeRatesService: Service, ObservableObject {
     
     func loadIfNeeded() async {
         switch ratesExchangeData {
-            case .loaded(let values):
-                if values.timestamp.minuteSince > MIN_BEFORE_REFRESH {
+            case .loaded(let loadedValue):
+            if loadedValue.timestamp.minuteSince > MIN_BEFORE_REFRESH {
                     return await self.load()
                 }
             case .notRequested:

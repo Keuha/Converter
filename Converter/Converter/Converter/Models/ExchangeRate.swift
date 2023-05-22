@@ -14,7 +14,9 @@ struct ExchangeRates: Codable, Model, Equatable {
     
     public init(_ apiModel: ExchangeRatesAPI) {
         self.base = apiModel.base
-        self.timestamp = apiModel.timestamp
+        // looks like API is updating result every 1h. doing an init at Date() would be more relevant to the user rather than seeing
+        // 9:00 for an entire Hour of refresh
+        self.timestamp = Date()
         self.rates = apiModel.rates
     }
     

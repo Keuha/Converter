@@ -24,11 +24,12 @@ final class ExchangeRatesService: XCTestCase {
         mock.valueToBeLoaded = DataConverter.translateExchangeDBType(data: ExchangeFakes.data!)
         
         let object = Converter.ExchangeRatesService(mock, network: NetWorkingMock())
-        let fakeData = DataConverter.translateExchangeModelType(data: ExchangeFakes.data!)
+        let fakeData = DataConverter.translateExchangeModelType(data: ExchangeFakes.data!, forceDate: true)
         
         switch object.ratesExchangeData {
             case .loaded(let rates):
-                XCTAssertEqual(rates, fakeData)
+                XCTAssertEqual(rates.base, fakeData.base)
+                XCTAssertEqual(rates.rates, fakeData.rates)
             default:
                 XCTAssert(false, "values should be fetch from Storage but wasn't")
         }
@@ -58,7 +59,11 @@ final class ExchangeRatesService: XCTestCase {
         let cancellable = object.$ratesExchangeData.sink { loadable in
             switch loadable {
                 case .loaded(let values):
-                    XCTAssertEqual(values, fakeData)
+                // since we are mocking Network value
+                // we have no way to override the Model being initiated at Date() value
+                // no need to compare the dates
+                XCTAssertEqual(values.base, fakeData.base)
+                XCTAssertEqual(values.rates, fakeData.rates)
                     expectation.fulfill()
                 default:
                     break
