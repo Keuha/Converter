@@ -1,4 +1,6 @@
-#  Converter App for PayPay
+#  Converter
+
+### project is unfinished
 
 ## How to run the project 
 
