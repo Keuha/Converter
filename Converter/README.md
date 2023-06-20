@@ -34,7 +34,3 @@ for storage data purpose, Realm has been added to the project though SPM.
 - a small customisation of the colors has been done for dark mode.
 - currency full name depends on your device language
 
-Hope you enjoyed reviewing the project and that it meets your requirement. I am looking forward to hearing from you ! 
-
-Franck Petriz (フランック　ペットリズ)
-
