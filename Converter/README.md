@@ -22,11 +22,7 @@ when running unit test on Converter target, testplan is executed to run all unit
 
 ## Technologies
 
-the app is made using SwiftUI & Combine since no requirement mention usage of UIKit only.
-
-## Dependencies 
-
-for storage data purpose, Realm has been added to the project though SPM.
+the app is made using SwiftUI & Combine
 
 ### others
 
